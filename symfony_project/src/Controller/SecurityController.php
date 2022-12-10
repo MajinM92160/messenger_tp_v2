@@ -20,7 +20,6 @@ class SecurityController extends AbstractController
     {
         /** @var $user User */
         if ($user = $this->getUser()) {
-
             /*
              * Update est privé donc le destinataire doit avoir subscribe aux deux
              * topics pour pouvoir y accéder, et l'un deux est souscrit dans le JWT

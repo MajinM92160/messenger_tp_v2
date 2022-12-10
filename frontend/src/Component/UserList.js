@@ -1,19 +1,17 @@
 import {useEffect, useState} from "react";
 import useGetUserList from "../Hook/useGetUserList";
 import useBackendPing from "../Hook/useBackendPing";
+import TchatUser from "./TchatUser";
 
 export default function UserList() {
     const [userList, setUserList] = useState([]);
+    const [userReceiver, setUserReceiver] = useState();
 
     const getUserList = useGetUserList();
-    const backendPing = useBackendPing();
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const userId = e.target[0].value;
-        backendPing(userId).then(data => console.log(data))
+    const openTchat = (id) => {
+      setUserReceiver(id);
     }
-
     const handleMessage = (e) => {
         document.querySelector('h1').insertAdjacentHTML('afterend', '<div class="alert alert-success w-75 mx-auto">Ping !</div>');
         window.setTimeout(() => {
@@ -42,11 +40,11 @@ export default function UserList() {
         <div>
             <h1 className='m-5 text-center'>Ping a user</h1>
             {userList.map((user) => (
-                <form className='w-75 mx-auto mb-3' onSubmit={handleSubmit}>
-                    <button className='btn btn-dark w-100' type='submit' value={user.id}>{user.username}</button>
-                </form>
-
+                    <button key={user.id} className='btn btn-dark w-100' type='submit' onClick={()=>openTchat(user.id)} value={user.id}>{user.username}</button>
             ))}
+            <div>
+                {userReceiver && <TchatUser userReceiver={userReceiver}/>}
+            </div>
         </div>
     )
 }
