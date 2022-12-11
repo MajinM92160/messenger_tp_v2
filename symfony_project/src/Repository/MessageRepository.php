@@ -19,6 +19,20 @@ class MessageRepository extends ServiceEntityRepository
         parent::__construct($registry, Message::class);
     }
 
+    public function getMessage($idSender, $idReceiver): array
+    {
+        return $this->createQueryBuilder('m')
+            ->select(['m.id', 'm.content', 'us.id as sender', 'ur.id as receiver'])
+            ->leftJoin('m.userReceiver','ur')
+            ->leftJoin('m.userSender', 'us')
+            ->where('m.userReceiver = :idReceiver OR m.userReceiver = :idSender')
+            ->andWhere('m.userSender = :idSender OR m.userSender = :idReceiver')
+            ->setParameter('idReceiver', $idReceiver)
+            ->setParameter('idSender', $idSender)
+            ->getQuery()
+            ->getArrayResult();
+    }
+
     // /**
     //  * @return Message[] Returns an array of Message objects
     //  */

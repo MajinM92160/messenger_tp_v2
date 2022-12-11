@@ -25,3 +25,5 @@ RUN curl -1sLf 'https://dl.cloudsmith.io/public/symfony/stable/setup.deb.sh' | b
 RUN apt install symfony-cli
 
 WORKDIR /var/www/
+
+RUN a2enmod rewrite

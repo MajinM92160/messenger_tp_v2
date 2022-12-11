@@ -100,6 +100,8 @@
       <excludeFolder url="file://$MODULE_DIR$/symfony_project/vendor/symfony/property-info" />
       <excludeFolder url="file://$MODULE_DIR$/symfony_project/vendor/symfony/monolog-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/symfony_project/vendor/friendsofphp/proxy-manager-lts" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony_project/vendor/namshi/jose" />
+      <excludeFolder url="file://$MODULE_DIR$/symfony_project/vendor/lexik/jwt-authentication-bundle" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

@@ -24,9 +24,10 @@ export default function Login() {
     const handleSubmit = (e) => {
         e.preventDefault();
         getJWT(username, password).then(data => {
-            if (data.JWT) {
-                setUser(data.JWT);
-                window.localStorage.setItem('token', data.JWT);
+            if (data) {
+                setUser(data);
+                window.localStorage.setItem('token', data.token);
+                window.localStorage.setItem('userId', data.id)
                 navigate(from, {replace: true});
             } else {
                 console.log(data)

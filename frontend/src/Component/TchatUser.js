@@ -2,6 +2,7 @@ import {useState} from "react";
 
 export default function TchatUser({userReceiver}){
     const [content, setContent] = useState();
+
     const handleSubmit = () => {
       fetch(`http://localhost:8245/api/send/message/${userReceiver}`, {
           method: 'POST',

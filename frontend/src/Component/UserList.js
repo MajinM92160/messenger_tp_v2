@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import useGetUserList from "../Hook/useGetUserList";
 import useBackendPing from "../Hook/useBackendPing";
 import TchatUser from "./TchatUser";
+import ListMessage from "./ListMessage";
 
 export default function UserList() {
     const [userList, setUserList] = useState([]);
@@ -44,6 +45,9 @@ export default function UserList() {
             ))}
             <div>
                 {userReceiver && <TchatUser userReceiver={userReceiver}/>}
+            </div>
+            <div>
+                {userReceiver && <ListMessage userReceiver={userReceiver}/>}
             </div>
         </div>
     )

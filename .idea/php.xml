@@ -96,6 +96,8 @@
       <path value="$PROJECT_DIR$/symfony_project/vendor/symfony/property-info" />
       <path value="$PROJECT_DIR$/symfony_project/vendor/symfony/monolog-bundle" />
       <path value="$PROJECT_DIR$/symfony_project/vendor/friendsofphp/proxy-manager-lts" />
+      <path value="$PROJECT_DIR$/symfony_project/vendor/namshi/jose" />
+      <path value="$PROJECT_DIR$/symfony_project/vendor/lexik/jwt-authentication-bundle" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.0">

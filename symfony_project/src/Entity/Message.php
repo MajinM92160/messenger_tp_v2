@@ -25,14 +25,14 @@ class Message
     private $userSender;
 
 
+    public function getUserReceiver()
+    {
+        return $this->userReceiver;
+    }
+
     public function setUserReceiver(?User $userReceiver): void
     {
         $this->userReceiver = $userReceiver;
-    }
-
-    public function __construct()
-    {
-        $this->userReceiver = new ArrayCollection();
     }
 
     public function getId(): ?int
