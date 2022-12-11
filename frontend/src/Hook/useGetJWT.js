@@ -3,15 +3,13 @@ import data from "bootstrap/js/src/dom/data";
 export default function useGetJWT() {
 
     return function (username, password) {
-        const credentials = btoa(`${username}:${password}`);
 
-        return fetch('http://localhost:8245/login', {
-            method: 'GET',
-            credentials: "include",
-            mode: "cors",
+        return fetch('http://localhost:8245/api/login_check', {
+            method: 'POST',
             headers: {
-                'Authorization': `Basic ${credentials}`
-            }
+                'Content-Type' : 'application/json'
+            },
+            body: JSON.stringify({username, password})
         })
             .then(data => data.json())
     }

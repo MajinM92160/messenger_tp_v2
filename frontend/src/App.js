@@ -4,6 +4,7 @@ import NeedAuth from "./Auth/NeedAuth";
 import UserList from "./Component/UserList";
 import Login from "./Auth/Login";
 import UserProvider from "./Context/UserContext";
+import TchatUser from "./Component/TchatUser";
 
 function App() {
     return (
@@ -13,6 +14,11 @@ function App() {
                     <Route path='/' element={
                         <NeedAuth>
                             <UserList/>
+                        </NeedAuth>
+                    }/>
+                    <Route path='/tchat/user' element={
+                        <NeedAuth>
+                            <TchatUser />
                         </NeedAuth>
                     }/>
                     <Route path='/login' element={<Login/>}/>
