@@ -18,7 +18,7 @@ export default function ListMessage({userReceiver}){
     }, [handleReceiveMessage])
 
     useEffect(() => {
-        fetch(`http://localhost:8245/api/get/message/${userReceiver}`,{
+        fetch(`http://127.0.0.1:8245/api/get/message/${userReceiver}`,{
             headers: {
                 'Authorization': `Bearer ${window.localStorage.getItem('token')}`,
             }
@@ -37,7 +37,13 @@ export default function ListMessage({userReceiver}){
             {content.map((message) =>{
             return (
                 <div key={message.id}>
-                    <p>{message.content}</p>
+                   {message.sender === parseInt(window.localStorage.getItem('userId')) ?
+                        <div className='ui floating message' style={{backgroundColor: 'azure'}}>
+                            {message.content}
+                        </div> :
+                       <div className="ui floating message" style={{backgroundColor: 'cornsilk'}}>
+                           {message.content}
+                       </div>}
                     <br/>
                 </div>
             );

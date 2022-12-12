@@ -22,6 +22,9 @@ export default function Login() {
     }
 
     const handleSubmit = (e) => {
+        if(!username || !password){
+            return alert('Username or password false');
+        }
         e.preventDefault();
         getJWT(username, password).then(data => {
             if (data) {

@@ -1,6 +1,6 @@
 import {useState} from "react";
 
-export default function TchatUser({userReceiver}){
+export default function TchatUser({userReceiver, username}){
     const [content, setContent] = useState();
 
     const handleSubmit = () => {
@@ -11,15 +11,20 @@ export default function TchatUser({userReceiver}){
           },
           body: JSON.stringify({message: content})
       }).then((response)=> response.json())
-          .then((data) => console.log(data))
+          .then((data) => console.log(data));
     };
 
 
     return (
         <div>
-            <h1>Send Message to {userReceiver}</h1>
-            <input type="text" onChange={(event) => setContent(event.target.value)}/>
-            <button onClick={() => handleSubmit()}>Send</button>
+            <h3>Send Message to {username}</h3>
+            <div className="ui input">
+                <input placeholder="Your message" type="text" onChange={(event) => setContent(event.target.value)} />
+            </div>
+            <button className="ui blue button" onClick={() => handleSubmit()}>
+                <i style={{float: 'left'}} className="paper plane outline icon"></i>
+                Send
+            </button>
         </div>
     );
 };
